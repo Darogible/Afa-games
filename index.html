@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afa-games</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1 id="main-title">Afa-games</h1>
+        <div>
+            <select id="languageSelect">
+                <option value="en">English</option>
+                <option value="ru">Русский</option>
+                <option value="cs">Čeština</option>
+            </select>
+        </div>
+    </header>
+
+
+    <main>
+        <div class="game-container">
+            <div class="game-box" data-game="tic-tac-toe">
+                <img src="img/tic-tac-toe.jpg" alt="Tic Tac Toe" class="game-image">
+                <p class="game-title" lang-lang="gameTitleTicTacToe">Tic Tac Toe</p>
+            </div>
+            <div class="game-box" data-game="minesweeper">
+                <img src="img/minesweeper.jpg" alt="Minesweeper" class="game-image">
+                <p class="game-title" lang-lang="gameTitleMinesweeper">Minesweeper</p>
+            </div>
+            <div class="game-box" data-game="battleship">
+                <img src="img/battleship.jpg" alt="Battleship" class="game-image">
+                <p class="game-title" lang-lang="gameTitleBattleship">Battleship</p>
+            </div>            
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Afa-games</p>
+        <p>Contact: <a href="mailto:andrey35rm@gmail.com">andrey35rm@gmail.com</a></p>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="tic-tac-toe.js"></script>
+    <script src="lang.js"></script>
+
+</body>
+</html>

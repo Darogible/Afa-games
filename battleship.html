@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title lang-lang="gameBattleship">Battleship</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="battleship.css?v=1.0">
+</head>
+<body>
+    <header>
+        <h1 class ="game-title" lang-lang="gameBattleship">Battleship</h1>
+        <div>
+            <button class="backButton" lang-lang="backButton">Back to Home</button>
+        </div>
+    </header>
+
+    <main>
+        <div id="background">
+            <div id="battleship-settings">
+                <select id="battleship-level-select">
+                    <option value="easy" lang-lang="difficultyEasy">Easy</option>
+                    <option value="hard" lang-lang="difficultyHard">Hard</option>
+                    <option value="cheater" lang-lang="difficultCheater">Cheater</option>
+                </select>
+            </div>
+
+            <div class="battlefield-container" id="battlefield-player">
+                <div class="battlefield">
+                    <div class="numbers-layer" id="numbers-layer-player"></div>
+                    <div class="grid-container">
+                        <div class="letters-layer" id="letters-layer-player"></div>
+                        <div class="battlefield-board grid" id="battleship-board-player">
+                            <!-- Here is the player's game board -->
+                        </div>  
+                    </div>
+                </div>
+            </div>
+
+            <button id="random" lang-lang="randomBattleship">Random</button>
+            
+            <div class="battlefield-container" id="battlefield-PC">
+                <div class="battlefield">
+                    <div class="numbers-layer" id="numbers-layer-pc"></div>
+                    <div class="grid-container">
+                        <div class="letters-layer" id="letters-layer-pc"></div>
+                        <div class="battlefield-board grid" id="battleship-board-pc">
+                            <!-- Here is the computer's game board -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ship-container-pc-info">
+                <div class="ship-info" id="ship-info-1"></div>
+                <div class="ship-info" id="ship-info-2"></div>
+                <div class="ship-info" id="ship-info-3"></div>
+                <div class="ship-info" id="ship-info-4"></div>
+            </div>
+            
+            
+            <button id="start-game-button" lang-lang="startGameButton">Start Game</button>
+
+            <div class="ship-container-player">
+                <div class="ship-row">
+                    <div class="ship ship-4" id="ship-4-1-player" draggable="true"></div>
+                </div>
+                <div class="ship-row">
+                    <div class="ship ship-3" id="ship-3-1-player" draggable="true"></div>
+                    <div class="ship ship-3" id="ship-3-2-player" draggable="true"></div>
+                </div>
+                <div class="ship-row">
+                    <div class="ship ship-2" id="ship-2-1-player" draggable="true"></div>
+                    <div class="ship ship-2" id="ship-2-2-player" draggable="true"></div>
+                    <div class="ship ship-2" id="ship-2-3-player" draggable="true"></div>
+                </div>
+                <div class="ship-row">
+                    <div class="ship ship-1" id="ship-1-1-player" draggable="true"></div>
+                    <div class="ship ship-1" id="ship-1-2-player" draggable="true"></div>
+                    <div class="ship ship-1" id="ship-1-3-player" draggable="true"></div>
+                    <div class="ship ship-1" id="ship-1-4-player" draggable="true"></div>
+                </div>
+            </div>
+
+            <div class="ship-container-pc">
+                <div class="ship-row">
+                    <div class="ship ship-4" id="ship-4-1-pc" draggable="true"></div>
+                </div>
+                <div class="ship-row">
+                    <div class="ship ship-3" id="ship-3-1-pc" draggable="true"></div>
+                    <div class="ship ship-3" id="ship-3-2-pc" draggable="true"></div>
+                </div>
+                <div class="ship-row">
+                    <div class="ship ship-2" id="ship-2-1-pc" draggable="true"></div>
+                    <div class="ship ship-2" id="ship-2-2-pc" draggable="true"></div>
+                    <div class="ship ship-2" id="ship-2-3-pc" draggable="true"></div>
+                </div>
+                <div class="ship-row">
+                    <div class="ship ship-1" id="ship-1-1-pc" draggable="true"></div>
+                    <div class="ship ship-1" id="ship-1-2-pc" draggable="true"></div>
+                    <div class="ship ship-1" id="ship-1-3-pc" draggable="true"></div>
+                    <div class="ship ship-1" id="ship-1-4-pc" draggable="true"></div>
+                </div>
+            </div>
+
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <p lang-lang="questionAboutNewGame">Are you sure you want to start a new game?</p>
+                    <button id="confirmButton" lang-lang="confirmButton">OK</button>
+                    <button id="cancelButton" lang-lang="cancelButton">Cancel</button>
+                </div>
+            </div>
+
+            <div id="winnerModal" class="modal">
+                <div class="modal-content">
+                    <p id="winnerMessage"></p>
+                    <button id="closeModalButton">OK</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Afa-games</p>
+    </footer>
+
+    <script src="battleship.js"></script>
+    <script src="lang.js"></script>
+</body>
+</html>

@@ -1,0 +1,492 @@
+/* Battleship */
+
+#battleship-level-select {
+    margin-top: 70px; /* Move up more */
+    padding: 7px 12px;
+    font-size: 16px;
+    border: 2px solid #000000; 
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer; 
+    display: flex;
+    position: absolute; /* Absolute positioning */
+    top: 10%; /* Move up relative to the parent */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Precise centering */
+}
+
+#battleship-level-select:hover {
+    background-color: #f6f6f6; /* Changes background to dark gray on hover */
+}
+
+#start-game-button {
+    margin-bottom: 100px; /* Already moved down */
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4db651; 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    position: absolute; /* Absolute positioning */
+    bottom: 10%; /* Move down relative to the parent */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Precise centering */
+}
+
+/*
+#random {
+    margin-top: 390px;
+    margin-right: 420px;
+    padding: 10px 20px; 
+    font-size: 16px; 
+    color: #ffffff; 
+    background-color: #4682B4;
+    border: none; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+*/
+
+#random {
+    color: #ffffff; 
+    background-color: #4682B4;
+    border: none; 
+    border-radius: 1vw; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for style changes */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Button shadow */
+    position: absolute;
+    bottom: 10%; /* Move down relative to the parent */
+    left: 50%; /* Center horizontally */
+}
+
+#start-game-button:hover{
+    background-color: #45a049;
+}
+
+.battlefield-container_1 {
+    display: flex;
+    justify-content: flex-start; /* Aligns everything to the left */
+    align-items: flex-start;
+    position: relative;
+}
+
+.battlefield {
+    display: flex;
+}
+
+.grid-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.numbers-layer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 5px;
+    margin-top: 30px; /* Matches the letter offset */
+}
+
+.letters-layer {
+    display: grid;
+    grid-template-columns: repeat(10, 4vw);
+    justify-content: space-between;
+    margin-bottom: 5px;
+    position: relative; /* Using relative positioning */
+    
+}
+
+#battleship-board-player {
+    display: grid;
+    gap: 0;
+    border: 1px solid black;
+}
+
+#battleship-board-pc {
+    display: grid;
+    gap: 0;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+/* Common styles for cells */
+.cellBattleship {
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(67, 107, 195, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.battlefield-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: flex-start;
+    position: absolute; 
+    top: 30%; 
+}
+
+
+.battlefield-container {
+    display: inline-block; /* Add this to place fields side by side */
+    vertical-align: top; /* Align to the top edge */
+    margin: 10px; /* Small margin around each field */
+}
+
+
+.cellBattleship {
+    background-color: #ffffff; 
+    border: 1px solid #ccc;
+    pointer-events: auto; /* Make sure clicks are allowed */
+}
+
+
+.ship {
+    background-color: #4682B4; 
+}
+
+.hidden-ship {
+    background-color: #ffffff; 
+}
+
+.ship-zone {
+    background-color: #ffffff;
+}
+
+
+/* Style for a miss */
+.miss {
+    background-color: #e0e0e0; 
+    color: blue; 
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style for a hit */
+.hit {
+    background-color: #ffcccc; 
+    color: red; 
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styles for the modal background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+    z-index: 1000; /* On top of all elements */
+}
+
+/* Styles for the modal content */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Small shadow for depth */
+}
+
+/* Styles for the OK button in the modal */
+.modal-content button {
+    background-color: #45a049; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Styles for hover effect */
+.modal-content button:hover {
+    background-color: #3e8e41; 
+}
+
+/* Styles for the confirm button */
+#confirmButton {
+    background-color: #4db651; 
+    color: white;
+}
+
+/* Styles for the cancel button */
+#cancelButton {
+    background-color: #f44336; 
+    color: white;
+}
+
+#confirmButton:hover {
+    background-color: #45a049;
+}
+
+#cancelButton:hover {
+    background-color: #d32f2f;
+}
+
+
+/* Class to add blur effect */
+#battleship-board-pc {
+    filter: blur(7px);
+    transition: filter 0.8s ease; /* Smooth transition when removing blur */
+    pointer-events: none;
+}
+
+#battleship-board-pc.blur-effect .cellBattleship {
+    pointer-events: none; /* Disable clicks for all cells when blur is active */
+}
+
+
+#random:hover {
+    background-color: #0056b3; 
+}
+
+#random:active {
+    background-color: #004494;
+    transform: scale(0.98); 
+}
+
+#background {
+    width: 100vw; /* Takes 100% of screen width */
+    height: 100vh; /* Takes 100% of screen height */
+    overflow: hidden; /* Cuts off anything outside the boundaries */
+}
+
+
+@media (max-width: 480px) {
+
+    .numbers-layer div, .letters-layer div {
+        font-size: 2vw; 
+        width: 6vw; 
+        height: 6vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .battlefield-container {
+        display: inline-block; /* Fields in one line */
+        width: 45vw !important;  /* Each field takes 45% of screen width */
+        vertical-align: top; /* Align to the top edge */
+        margin: 0 2.5vw; /* Add space between fields */
+    }
+
+    #battlefield-player {
+        margin-left: 13vw;
+        margin-top: 60vw;
+        display: inline-block; /* Place fields in one line */
+    }
+    
+    #battlefield-PC {
+        margin-left: 13vw; /* Space between player and PC fields */
+        margin-top: -17vw;
+        display: inline-block;
+    }
+    
+
+    #battleship-board-player, #battleship-board-pc {
+        display: grid;
+        grid-template-columns: repeat(10, 6vw) !important; /* Set adaptive cell size */
+        grid-template-rows: repeat(10, 6vw) !important;    /* Set adaptive cell size */
+        min-width: 0; /* Remove minimum width limit */
+        min-height: 0; /* Remove minimum height limit */
+        width: auto; /* Width depends on content */
+        height: auto; /* Height depends on content */
+    }
+    
+    .letters-layer {
+        grid-template-columns: repeat(10, 3.5vw) !important;
+    }
+    
+
+    #start-game-button {
+        margin-bottom: -38vw; /* Already moved down */
+        padding: 2vw 5vw;
+        font-size: 3vw;
+
+    }
+
+    #random {
+        margin-bottom: -27vw; /* Already moved down */
+        padding: 2vw 5vw;
+        font-size: 3vw;
+        margin-left: -11vw;
+    }
+
+    #battleship-level-select {
+        padding: 1.5vw 3vw;
+        font-size: 3vw;
+        margin-top: 10vw;
+    }
+
+    @media (max-width: 380px) {
+        #start-game-button {
+            margin-bottom: -28vw;
+        }
+
+        #random {
+            margin-bottom: -17vw; 
+        }
+    }
+
+    @media (max-width: 350px) {
+        #start-game-button {
+            margin-bottom: -15vw; 
+        }
+
+        #random {
+            margin-bottom: -4vw; 
+        }
+    }
+    
+}
+
+
+
+
+
+
+@media (min-width: 481px) {
+
+
+    .battlefield-container {
+        display: inline-block; 
+        width: 45vw !important; 
+        vertical-align: top; 
+        margin: 0 2.5vw; 
+    }
+
+    #battlefield-player {
+        margin-left: 5vw; 
+        display: inline-block; 
+    }
+    
+    #battlefield-PC {
+        margin-left: 52vw; 
+        display: inline-block;
+    }
+    
+
+    #battleship-board-player, #battleship-board-pc {
+        display: grid;
+        grid-template-columns: repeat(10, 3.5vw) !important;
+        grid-template-rows: repeat(10, 3.5vw) !important;    
+        min-width: 0; 
+        min-height: 0; 
+        width: auto; 
+        height: auto; 
+    }
+    
+    .letters-layer {
+        grid-template-columns: repeat(10, 3.5vw) !important;
+    }
+    
+
+    #start-game-button {
+        margin-bottom: 8vw; /* Already moved down */
+        padding: 1.5vw 3vw;
+        font-size: 2vw;
+        bottom: 10%; /* Move down relative to the parent */
+        left: 50%; /* Center horizontally */
+        transform: translateX(-50%); /* Precise centering */
+        border-radius: 1vw; 
+    }
+
+    #random {
+        margin-bottom: 8vw; /* Already moved down */
+        margin-left: -33vw;
+        padding: 1.5vw 3vw;
+        font-size: 2vw; 
+    }
+
+    
+}
+
+
+
+
+
+@media (min-width: 769px) {
+
+    .battlefield-container {
+        display: inline-block; 
+        width: 45vw !important; 
+        vertical-align: top; 
+        margin: 0 2.5vw; 
+    }
+
+    #battlefield-player {
+        margin-left: 18vw; 
+        display: inline-block; 
+    }
+    
+    #battlefield-PC {
+        margin-left: 54vw; 
+        display: inline-block;
+    }
+    
+
+    #battleship-board-player, #battleship-board-pc {
+        display: grid;
+        grid-template-columns: repeat(10, 2.5vw) !important; 
+        grid-template-rows: repeat(10, 2.5vw) !important;    
+        min-width: 0; 
+        min-height: 0; 
+        width: auto; 
+        height: auto; 
+    }
+    
+    .letters-layer {
+        grid-template-columns: repeat(10, 2.5vw) !important;
+    }
+    
+
+    #start-game-button {
+        margin-bottom: 8vw; /* Already moved down */
+        padding: 0.9vw 1.7vw;
+        font-size: 1.2vw;
+        border-radius: 1vw; 
+    }
+
+    #random {
+        margin-bottom: 8vw; /* Already moved down */
+        margin-left: -20vw;
+        padding: 0.9vw 1.7vw;
+        font-size: 1.2vw;
+    }
+}
+
+@media (min-width:  1025px) {
+    #start-game-button {
+        margin-bottom: -1vw; /* Already moved down */
+        padding: 0.7vw 1.5vw;
+        font-size: 1.1vw;
+        border-radius: 1vw; 
+    }
+
+    #random {
+        margin-bottom: -1vw; /* Already moved down */
+        margin-left: -20vw;
+        padding: 0.7vw 1.5vw;
+        font-size: 1.1vw;
+    }
+}

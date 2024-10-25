@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title lang-lang="gameMinesweeper">Minesweeper</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1 class ="game-title" lang-lang="gameMinesweeper">Minesweeper</h1>
+        <div>
+            <button class="backButton" lang-lang="backButton">Back to Home</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="minesweeper-settings">
+            <select class="minesweeper-level-select">
+                <option value="easy" lang-lang="difficultyEasy">Easy</option>
+                <option value="medium" lang-lang="difficultyMedium">Medium</option>
+                <option value="hard" lang-lang="difficultyHard">Hard</option>
+            </select>
+        </div>
+
+        <div id="minesweeperBoard">
+            <!-- Cells of the board will be added dynamically in JavaScript -->
+        </div>
+
+        <button id="newGameButton" lang-lang="newGameButton">New Game</button>
+    </main>
+
+    <footer>
+        <p>© 2024 Afa-games</p>
+    </footer>
+
+    <script src="minesweeper.js"></script>
+    <script src="lang.js"></script>
+</body>
+</html>
